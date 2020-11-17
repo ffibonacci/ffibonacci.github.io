@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on devngrow</title>
+    <link>ffibonacci.gitlab.io/tags/</link>
+    <description>Recent content in Tags on devngrow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <copyright>© Made by Bill Gates.</copyright>
+    <lastBuildDate>Sat, 14 Nov 2020 17:10:15 +0300</lastBuildDate><atom:link href="ffibonacci.gitlab.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dev</title>
+      <link>ffibonacci.gitlab.io/tags/dev/</link>
+      <pubDate>Sat, 14 Nov 2020 17:10:15 +0300</pubDate>
+      
+      <guid>ffibonacci.gitlab.io/tags/dev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab</title>
+      <link>ffibonacci.gitlab.io/tags/gitlab/</link>
+      <pubDate>Sat, 14 Nov 2020 17:10:15 +0300</pubDate>
+      
+      <guid>ffibonacci.gitlab.io/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grow</title>
+      <link>ffibonacci.gitlab.io/tags/grow/</link>
+      <pubDate>Sat, 14 Nov 2020 17:10:15 +0300</pubDate>
+      
+      <guid>ffibonacci.gitlab.io/tags/grow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>ffibonacci.gitlab.io/tags/hugo/</link>
+      <pubDate>Sat, 14 Nov 2020 17:10:15 +0300</pubDate>
+      
+      <guid>ffibonacci.gitlab.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>site</title>
+      <link>ffibonacci.gitlab.io/tags/site/</link>
+      <pubDate>Sat, 14 Nov 2020 17:10:15 +0300</pubDate>
+      
+      <guid>ffibonacci.gitlab.io/tags/site/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssg</title>
+      <link>ffibonacci.gitlab.io/tags/ssg/</link>
+      <pubDate>Sat, 14 Nov 2020 17:10:15 +0300</pubDate>
+      
+      <guid>ffibonacci.gitlab.io/tags/ssg/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

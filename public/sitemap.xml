@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>ffibonacci.gitlab.io/tags/dev/</loc>
+    <lastmod>2020-11-14T17:10:15+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>ffibonacci.gitlab.io/</loc>
+    <lastmod>2020-11-14T17:10:15+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>ffibonacci.gitlab.io/tags/gitlab/</loc>
+    <lastmod>2020-11-14T17:10:15+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>ffibonacci.gitlab.io/tags/grow/</loc>
+    <lastmod>2020-11-14T17:10:15+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>ffibonacci.gitlab.io/tags/hugo/</loc>
+    <lastmod>2020-11-14T17:10:15+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>ffibonacci.gitlab.io/posts/hugoongitlab/hugoongitlab/</loc>
+    <lastmod>2020-11-14T17:10:15+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>ffibonacci.gitlab.io/posts/</loc>
+    <lastmod>2020-11-14T17:10:15+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>ffibonacci.gitlab.io/tags/site/</loc>
+    <lastmod>2020-11-14T17:10:15+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>ffibonacci.gitlab.io/tags/ssg/</loc>
+    <lastmod>2020-11-14T17:10:15+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>ffibonacci.gitlab.io/tags/</loc>
+    <lastmod>2020-11-14T17:10:15+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>ffibonacci.gitlab.io/about/</loc>
+    <lastmod>2019-04-19T21:37:58+05:30</lastmod>
+  </url>
+  
+</urlset>

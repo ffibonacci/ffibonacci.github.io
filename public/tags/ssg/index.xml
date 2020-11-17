@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssg on devngrow</title>
+    <link>ffibonacci.gitlab.io/tags/ssg/</link>
+    <description>Recent content in ssg on devngrow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <copyright>© Made by Bill Gates.</copyright>
+    <lastBuildDate>Sat, 14 Nov 2020 17:10:15 +0300</lastBuildDate><atom:link href="ffibonacci.gitlab.io/tags/ssg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo на Gitlab за N минут</title>
+      <link>ffibonacci.gitlab.io/posts/hugoongitlab/hugoongitlab/</link>
+      <pubDate>Sat, 14 Nov 2020 17:10:15 +0300</pubDate>
+      
+      <guid>ffibonacci.gitlab.io/posts/hugoongitlab/hugoongitlab/</guid>
+      <description>Установка HUGO, создаем сайта на локальной машине и подготовка GitLab Установка
+brew install hugo Создание сайта
+hugo new site ./имяСайта Потом на Gitlab необходимо создать репозиторий &amp;ldquo;имяСайта&amp;rdquo;</description>
+    </item>
+    
+  </channel>
+</rss>
