@@ -1,0 +1,58 @@
+baseURL = "https://ffibonacci.gitlab.io/devngrow/"
+languageCode = "ru-ru"
+title = "devngrow"
+
+paginate = 10
+
+copyright = "© Made by Bill Gates."
+
+pygmentsstyle = "solarized-dark"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+googleAnalytics = "UA-123-45"
+disqusShortname = "disqus_FRTFcEy9Eh"
+
+summaryLength = 20
+
+[params]
+	subtitle = "блог о человеке и компьютере"
+	disableDisqusTypes = ["page"]
+	featherIconsCDN = true
+	mode = "auto" # "dark", "auto", "light"
+	customCSS = "css/about.css"  # Custom CSS applied to default styles.
+	# customDarkCSS = "css/custom-dark.css"  # Custom styles applied to dark mode css.
+	# customJS = ["https://code.jquery.com/jquery-3.4.1.js", "js/custom1.js"]  # Custom JS scripts.
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "CV"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
+
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/ffibonacci"
+
+[[params.social]]
+name = "Email"
+icon = "mail"
+url = "mailto:devngrow.com?subject=blog"
+
+[taxonomies]
+   tag = "tags"
