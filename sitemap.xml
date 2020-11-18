@@ -8,11 +8,6 @@
   </url>
   
   <url>
-    <loc>https://devngrow/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
-  </url>
-  
-  <url>
     <loc>https://devngrow/posts/</loc>
     <lastmod>2018-03-18T02:01:58+05:30</lastmod>
   </url>
@@ -29,6 +24,11 @@
   
   <url>
     <loc>https://devngrow/tags/</loc>
+    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devngrow/</loc>
     <lastmod>2018-03-18T02:01:58+05:30</lastmod>
   </url>
   
