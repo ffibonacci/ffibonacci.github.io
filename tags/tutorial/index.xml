@@ -14,7 +14,7 @@
       <pubDate>Wed, 18 Nov 2020 14:50:22 +0300</pubDate>
       
       <guid>https://devngrow.com/posts/hugo-on-gitlab/hugo-on-gitlab-tutorial/</guid>
-      <description>Установка HUGO, создаем сайта на локальной машине и подготовка GitLab Установка
+      <description>Установка HUGO, создание сайта на локальной машине и подготовка GitLab Установка
 brew install hugo Создание сайта
 hugo new site ./имяСайта Потом на Gitlab необходимо создать репозиторий &amp;ldquo;имяСайта&amp;rdquo; (можно приватный)</description>
     </item>
