@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Hugo на Gitlab за N минут - devngrow</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Hugo на Gitlab за N минут" />
+<meta property="og:description" content="Описательная часть создания сайта на статическом генераторе сайтов Hugo с применением Gitlab Pages." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://devngrow.com/posts/hugo-on-gitlab/hugo-on-gitlab-tutorial/" />
+<meta property="article:published_time" content="2020-11-18T14:50:22+03:00" />
+<meta property="article:modified_time" content="2020-11-18T14:50:22+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hugo на Gitlab за N минут"/>
+<meta name="twitter:description" content="Описательная часть создания сайта на статическом генераторе сайтов Hugo с применением Gitlab Pages."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://devngrow.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://devngrow.com/css/main.css" /><link rel="stylesheet" type="text/css" href="https://devngrow.com/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://devngrow.com/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://devngrow.com/">
+	<h1 class="site-title"><a href="https://devngrow.com/">devngrow</a></h1>
+	<div class="site-description"><h2>блог о человеке и компьютере</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/ffibonacci" title="Github"><i data-feather="github"></i></a><a href="mailto:devngrow.com?subject=blog" title="Email"><i data-feather="mail"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">CV</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Hugo на Gitlab за N минут</h1>
+			<div class="meta">Posted at &mdash; Nov 18, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<h4 id="установка-hugo-создаем-сайта-на-локальной-машине-и-подготовка-gitlab">Установка HUGO, создаем сайта на локальной машине и подготовка GitLab</h4>
+<p>Установка</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install hugo
+</code></pre></div><p>Создание сайта</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new site ./имяСайта
+</code></pre></div><p>Потом на <a href="https://gitlab.com">Gitlab</a> необходимо создать репозиторий &ldquo;имяСайта&rdquo; (можно приватный)</p>
+<p>Еще нужно создать ssh ключ, чтобы легче было жить&hellip;</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t ed25519 -C <span style="color:#2aa198">&#34;комментарий типа username@gitlab.com&#34;</span>
+</code></pre></div><p>Эта команда создаст 2 файла в корневом катологе (<code>~/.ssh/</code>), в одном публичный ключ, в другом приватный. Тот, что публичный заканчивается на pub (public). Его надо открыть и добавить на <a href="https://gitlab.com/-/profile/keys">gitlab</a> без комментария, в заголовке(тот что Title) на странице Gitlab указать например &ldquo;домашний пека&rdquo;, можно еще задать когда этот ключ придет в негодность(по-хорошему), но для упрощения оставим пустым.</p>
+<h4 id="теперь-переходим-к-соединению-папки-на-локальном-компьютере-и-gitlab-rep">Теперь переходим к соединению папки на локальном компьютере и gitlab rep</h4>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">cd</span> ~/имяСайта
+git init
+git add *
+git commit -m <span style="color:#2aa198">&#39;initial commit&#39;</span>
+</code></pre></div><p>Темы для сайта можно найти здесь <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></p>
+<p>На примере темы с этого сайта:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">cd</span> themes/
+git submodule add https://github.com/vividvilla/ezhil.git ezhil
+<span style="color:#b58900">cd</span> ..
+git add *
+git commit -m <span style="color:#2aa198">&#39;Added theme ezhil&#39;</span>
+</code></pre></div><p>Теперь скопируем пример сайта который есть в самой теме:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp -r themes/ezhil/exampleSite/* ./
+git add *
+git commit -m <span style="color:#2aa198">&#39;Added example of theme&#39;</span>
+</code></pre></div><p>Все ли работает? Проверить это можно запустив локальный сервер, в Hugo это далается так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server -D
+</code></pre></div><p>флаг <code>-D</code> означает лишь то, что загрузятся И черновые статьи, если они есть. В данном случае это не принципиально, так как в примере нет черновых статей.</p>
+<p>Если все сработало так как мы этого ожидали - то остается загрузить все это в наш гит-репозиторий.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push -u git@gitlab.com:Ваше_Имя_На_Гитлаб/Имя_проекта.git
+git push -u git@gitlab.com:Ваше_Имя_На_Гитлаб/Имя_проекта.git master
+</code></pre></div><p>Хорошо бы, чтобы наш Hugo не обновлялся постоянно в репорзитории, чтобы не приходилось все заново настраивать, поэтому заранее посмотрим версию на локальном компьютере с помощью команды <code>hugo version</code>, и эту версию мы будем использовать далее.</p>
+<p><em><strong>вариант 1:</strong></em> в папке с нашим проектом на локальном компьютере нужно создать файл <code>.gitlab-ci.yml</code> с таким содержанием:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#586e75"># All available Hugo versions are listed here:</span>
+<span style="color:#586e75"># https://gitlab.com/pages/hugo/container_registry</span>
+<span style="color:#268bd2">image</span>: registry.gitlab.com/pages/hugo/hugo_extended:1.01
+
+<span style="color:#268bd2">variables</span>:
+  <span style="color:#268bd2">GIT_SUBMODULE_STRATEGY</span>: recursive
+
+<span style="color:#268bd2">test</span>:
+  <span style="color:#268bd2">script</span>:
+    - hugo
+  <span style="color:#268bd2">except</span>:
+    - master
+
+<span style="color:#268bd2">pages</span>:
+  <span style="color:#268bd2">script</span>:
+    - hugo
+  <span style="color:#268bd2">artifacts</span>:
+    <span style="color:#268bd2">paths</span>:
+      - public
+  <span style="color:#268bd2">only</span>:
+    - master
+</code></pre></div><p>Вместо <code>1.01</code> необходимо вписать Вашу версию.</p>
+<p><em><strong>вариант 2:</strong></em> создать этот файл с помощью Gitlab: Репозиторий-&gt;Файлы-&gt;Добавить файл-&gt;в этой директории Новый файл. Выбрать из шаблонов <code>.gitlab-ci.yml</code>и <code>Hugo</code>, сгенирируется файл который будет выглядеть как этот:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#586e75"># This file is a template, and might need editing before it works on your project.</span>
+---
+<span style="color:#586e75"># All available Hugo versions are listed here:</span>
+<span style="color:#586e75"># https://gitlab.com/pages/hugo/container_registry</span>
+<span style="color:#268bd2">image</span>: registry.gitlab.com/pages/hugo:latest
+
+<span style="color:#268bd2">variables</span>:
+  <span style="color:#268bd2">GIT_SUBMODULE_STRATEGY</span>: recursive
+
+<span style="color:#268bd2">test</span>:
+  <span style="color:#268bd2">script</span>:
+    - hugo
+  <span style="color:#268bd2">except</span>:
+    - master
+
+<span style="color:#268bd2">pages</span>:
+  <span style="color:#268bd2">script</span>:
+    - hugo
+  <span style="color:#268bd2">artifacts</span>:
+    <span style="color:#268bd2">paths</span>:
+      - public
+  <span style="color:#268bd2">only</span>:
+    - master
+</code></pre></div><p>Я все же рекомендую отредактировать строку <code>image: registry.gitlab.com/pages/hugo:latest</code> и заменить в ней версию Hugo на статичную, <code>image: registry.gitlab.com/pages/hugo/hugo_extended:Ваша_Версия</code></p>
+<h3 id="настройки-репозитория">Настройки репозитория</h3>
+<p>На <a href="https://gitlab.com">Gitlab</a> в Настройки-&gt;Основные-&gt;Видимость&hellip; разверните и пролистайте вниз до Pages, где необходимо сменить &ldquo;Только участникам проекта&rdquo; на &ldquo;Все&rdquo;</p>
+<p>Далее в Настройки-&gt;Страницы появится (вот-вот, не сразу) адрес вашего сайта на gitlab(формата <a href="https://username.gitlab.io/repname">https://username.gitlab.io/repname</a>)</p>
+<p>Так же можно добавить другое доменное имя. Если вы добавите стороннее доменное имя и верифицируете (никогда <strong>НЕ удаляйте</strong> его, если удалить верифицированную страницу - это перечеркнет дорогу к цели =) В моем случае я больше не смог присоединить свой домен к GitLab Pages из-за ошибки, которая существует с 2016 года (по крайней мере это дата создания поста с анагичной проблемой в gitlab community), а в ходе общения с Gitlab Support - мне посоветовали подождать пару недель, что ж&hellip; мораль: не надейся на Gitlab Support).</p>
+<h2 id="оживляем-сайт">Оживляем сайт</h2>
+<p>Для начала необходимо отредактировать основной конфиг сайта, а это <code>~/имяСайта/config.toml</code> и в первую очередь надо изменить <code>baseURL</code></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">baseURL = <span style="color:#2aa198">&#34;https://ваше_имя_на_гитлаб.gitlab.io/имя_проекта/&#34;</span>
+</code></pre></div><p>Через несколько минут когда закончится сборка, можно будет заглянуть на сайт во внешнем мире как раз таки по адресу указанному в baseURL ;)</p>
+<p>Останется только настраивать сам сайт добавляя и убирая меню, можно даже изменить тему(ее цветовую гамму либо вообще создать свою).</p>
+<p>Рекомендую все это делать на локальном устройстве и пушить уже готовые/<strong>РАБОЧИЕ</strong> варианты, плюс если что-то пойдет не так - можно всегда откатиться запулив файлы с репозитория и начать &ldquo;разбор игрушечной машинки&rdquo; заново.</p>
+<p>Удачи ;-)</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/hugo">hugo</a></li>
+								
+								<li><a href="/tags/gitlab">gitlab</a></li>
+								
+								<li><a href="/tags/ssg">ssg</a></li>
+								
+								<li><a href="/tags/tutorial">tutorial</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © Made by Bill Gates. 2020  </div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

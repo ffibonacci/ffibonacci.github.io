@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>devngrow</title>
-    <link>https://devngrow.com/</link>
-    <description>Recent content on devngrow</description>
+    <title>gitlab on devngrow</title>
+    <link>https://devngrow.com/tags/gitlab/</link>
+    <description>Recent content in gitlab on devngrow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <copyright>© Made by Bill Gates.</copyright>
-    <lastBuildDate>Wed, 18 Nov 2020 14:50:22 +0300</lastBuildDate><atom:link href="https://devngrow.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Nov 2020 14:50:22 +0300</lastBuildDate><atom:link href="https://devngrow.com/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo на Gitlab за N минут</title>
       <link>https://devngrow.com/posts/hugo-on-gitlab/hugo-on-gitlab-tutorial/</link>
@@ -17,15 +17,6 @@
       <description>Установка HUGO, создаем сайта на локальной машине и подготовка GitLab Установка
 brew install hugo Создание сайта
 hugo new site ./имяСайта Потом на Gitlab необходимо создать репозиторий &amp;ldquo;имяСайта&amp;rdquo; (можно приватный)</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://devngrow.com/about/</link>
-      <pubDate>Fri, 19 Apr 2019 21:37:58 +0530</pubDate>
-      
-      <guid>https://devngrow.com/about/</guid>
-      <description>generating html page, wait :)</description>
     </item>
     
   </channel>

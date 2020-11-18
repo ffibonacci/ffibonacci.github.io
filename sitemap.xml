@@ -3,38 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://devngrow.com/about/</loc>
-    <lastmod>2019-04-19T21:37:58+05:30</lastmod>
+    <loc>https://devngrow.com/</loc>
+    <lastmod>2020-11-18T14:50:22+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://devngrow.com/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
+    <loc>https://devngrow.com/tags/gitlab/</loc>
+    <lastmod>2020-11-18T14:50:22+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devngrow.com/tags/hugo/</loc>
+    <lastmod>2020-11-18T14:50:22+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devngrow.com/posts/hugo-on-gitlab/hugo-on-gitlab-tutorial/</loc>
+    <lastmod>2020-11-18T14:50:22+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://devngrow.com/posts/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
+    <lastmod>2020-11-18T14:50:22+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://devngrow.com/tags/primer/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://devngrow.com/posts/post-1/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
+    <loc>https://devngrow.com/tags/ssg/</loc>
+    <lastmod>2020-11-18T14:50:22+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://devngrow.com/tags/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
+    <lastmod>2020-11-18T14:50:22+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://devngrow.com/tags/todo/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
+    <loc>https://devngrow.com/tags/tutorial/</loc>
+    <lastmod>2020-11-18T14:50:22+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devngrow.com/about/</loc>
+    <lastmod>2019-04-19T21:37:58+05:30</lastmod>
   </url>
   
 </urlset>
