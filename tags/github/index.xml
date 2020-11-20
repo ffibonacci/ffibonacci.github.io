@@ -9,12 +9,12 @@
     <copyright>© Made by Bill Gates.</copyright>
     <lastBuildDate>Fri, 20 Nov 2020 17:03:11 +0300</lastBuildDate><atom:link href="https://devngrow.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hugo on Github</title>
+      <title>Hugo на Github за N минут</title>
       <link>https://devngrow.com/posts/hugo-on-github/hugo-on-github/</link>
       <pubDate>Fri, 20 Nov 2020 17:03:11 +0300</pubDate>
       
       <guid>https://devngrow.com/posts/hugo-on-github/hugo-on-github/</guid>
-      <description>Hugo на Github за N минут после неудачи с Gitlab, а конкретно с повторным соединением кастомного домена к моей Gitlab Page, махнув на это рукой, было принято решение использовать GitHub.</description>
+      <description>после неудачи с Gitlab, а конкретно с повторным соединением кастомного домена к моей Gitlab Page, махнув на это рукой, было принято решение использовать GitHub.</description>
     </item>
     
   </channel>
