@@ -7,20 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <copyright>© Made by Bill Gates.</copyright>
-    <lastBuildDate>Wed, 18 Nov 2020 14:50:22 +0300</lastBuildDate><atom:link href="https://devngrow.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Nov 2020 17:03:11 +0300</lastBuildDate><atom:link href="https://devngrow.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>gitlab</title>
-      <link>https://devngrow.com/tags/gitlab/</link>
-      <pubDate>Wed, 18 Nov 2020 14:50:22 +0300</pubDate>
+      <title>github</title>
+      <link>https://devngrow.com/tags/github/</link>
+      <pubDate>Fri, 20 Nov 2020 17:03:11 +0300</pubDate>
       
-      <guid>https://devngrow.com/tags/gitlab/</guid>
+      <guid>https://devngrow.com/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
       <link>https://devngrow.com/tags/hugo/</link>
-      <pubDate>Wed, 18 Nov 2020 14:50:22 +0300</pubDate>
+      <pubDate>Fri, 20 Nov 2020 17:03:11 +0300</pubDate>
       
       <guid>https://devngrow.com/tags/hugo/</guid>
       <description></description>
@@ -29,7 +29,7 @@
     <item>
       <title>ssg</title>
       <link>https://devngrow.com/tags/ssg/</link>
-      <pubDate>Wed, 18 Nov 2020 14:50:22 +0300</pubDate>
+      <pubDate>Fri, 20 Nov 2020 17:03:11 +0300</pubDate>
       
       <guid>https://devngrow.com/tags/ssg/</guid>
       <description></description>
@@ -38,9 +38,18 @@
     <item>
       <title>tutorial</title>
       <link>https://devngrow.com/tags/tutorial/</link>
-      <pubDate>Wed, 18 Nov 2020 14:50:22 +0300</pubDate>
+      <pubDate>Fri, 20 Nov 2020 17:03:11 +0300</pubDate>
       
       <guid>https://devngrow.com/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab</title>
+      <link>https://devngrow.com/tags/gitlab/</link>
+      <pubDate>Wed, 18 Nov 2020 14:50:22 +0300</pubDate>
+      
+      <guid>https://devngrow.com/tags/gitlab/</guid>
       <description></description>
     </item>
     
