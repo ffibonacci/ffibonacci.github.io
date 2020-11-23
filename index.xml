@@ -28,14 +28,5 @@ brew install hugo Создание сайта
 hugo new site ./имяСайта Потом на Gitlab необходимо создать репозиторий &amp;ldquo;имяСайта&amp;rdquo; (можно приватный)</description>
     </item>
     
-    <item>
-      <title>About</title>
-      <link>https://devngrow.com/about_def/</link>
-      <pubDate>Fri, 19 Apr 2019 21:37:58 +0530</pubDate>
-      
-      <guid>https://devngrow.com/about_def/</guid>
-      <description>generating html page, wait :)</description>
-    </item>
-    
   </channel>
 </rss>
