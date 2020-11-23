@@ -30,10 +30,10 @@ hugo new site ./имяСайта Потом на Gitlab необходимо с�
     
     <item>
       <title>About</title>
-      <link>https://devngrow.com/about/</link>
+      <link>https://devngrow.com/about_def/</link>
       <pubDate>Fri, 19 Apr 2019 21:37:58 +0530</pubDate>
       
-      <guid>https://devngrow.com/about/</guid>
+      <guid>https://devngrow.com/about_def/</guid>
       <description>generating html page, wait :)</description>
     </item>
     
