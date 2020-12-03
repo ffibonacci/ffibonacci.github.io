@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>grow on devngrow</title>
-    <link>https://devngrow.com/tags/grow/</link>
-    <description>Recent content in grow on devngrow</description>
+    <title>study on devngrow</title>
+    <link>https://devngrow.com/tags/study/</link>
+    <description>Recent content in study on devngrow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <copyright>© Made by Bill Gates.</copyright>
-    <lastBuildDate>Thu, 03 Dec 2020 18:01:00 +0300</lastBuildDate><atom:link href="https://devngrow.com/tags/grow/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Dec 2020 18:01:00 +0300</lastBuildDate><atom:link href="https://devngrow.com/tags/study/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Учебные материалы в ссылках</title>
       <link>https://devngrow.com/posts/study/study-in-links/</link>
@@ -15,15 +15,6 @@
       
       <guid>https://devngrow.com/posts/study/study-in-links/</guid>
       <description>Учиться надо всегда, но с каждым годом учебный материал дублируется на всё большем количестве источников, а чтобы это не было полным копированием - иногда его редактируют и подают как &amp;ldquo;своё&amp;rdquo;, что зачастую приводит к ухудшению качества этих самых учебных материалов.</description>
-    </item>
-    
-    <item>
-      <title>Lagom - Шведский &#34;дзен&#34; </title>
-      <link>https://devngrow.com/posts/lagom/lagom/</link>
-      <pubDate>Mon, 23 Nov 2020 10:44:20 +0300</pubDate>
-      
-      <guid>https://devngrow.com/posts/lagom/lagom/</guid>
-      <description>Лагом можно трактовать как &amp;ldquo;достаточность&amp;rdquo;, в Швеции по крайней мере это слово так и используется, а еще его можно экстраполировать на всю жизнь шведов - от быта до работы.</description>
     </item>
     
   </channel>
