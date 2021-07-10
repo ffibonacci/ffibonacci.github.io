@@ -1,95 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://devngrow.com/tags/dev/</loc>
-    <lastmod>2020-12-03T18:01:00+03:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-10T18:00:00+03:00</lastmod>
+  </url><url>
     <loc>https://devngrow.com/</loc>
-    <lastmod>2020-12-03T18:01:00+03:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-10T18:00:00+03:00</lastmod>
+  </url><url>
     <loc>https://devngrow.com/tags/grow/</loc>
-    <lastmod>2020-12-03T18:01:00+03:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-10T18:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://devngrow.com/tags/java/</loc>
+    <lastmod>2021-07-10T18:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://devngrow.com/posts/javavirtualmachine/jvm/</loc>
+    <lastmod>2021-07-10T18:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://devngrow.com/tags/jvm/</loc>
+    <lastmod>2021-07-10T18:00:00+03:00</lastmod>
+  </url><url>
     <loc>https://devngrow.com/posts/</loc>
-    <lastmod>2020-12-03T18:01:00+03:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-10T18:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://devngrow.com/tags/</loc>
+    <lastmod>2021-07-10T18:00:00+03:00</lastmod>
+  </url><url>
     <loc>https://devngrow.com/tags/study/</loc>
     <lastmod>2020-12-03T18:01:00+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://devngrow.com/tags/</loc>
-    <lastmod>2020-12-03T18:01:00+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/posts/study/study-in-links/</loc>
     <lastmod>2020-12-03T18:01:00+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/tags/lagom/</loc>
     <lastmod>2020-11-23T10:44:20+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/posts/lagom/lagom/</loc>
     <lastmod>2020-11-23T10:44:20+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/tags/phylosophy/</loc>
     <lastmod>2020-11-23T10:44:20+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/tags/thoughts/</loc>
     <lastmod>2020-11-23T10:44:20+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/tags/github/</loc>
     <lastmod>2020-11-20T17:03:11+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/tags/hugo/</loc>
     <lastmod>2020-11-20T17:03:11+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/posts/hugo-on-github/hugo-on-github/</loc>
     <lastmod>2020-11-20T17:03:11+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/tags/ssg/</loc>
     <lastmod>2020-11-20T17:03:11+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/tags/tutorial/</loc>
     <lastmod>2020-11-20T17:03:11+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/tags/gitlab/</loc>
     <lastmod>2020-11-18T14:50:22+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://devngrow.com/posts/hugo-on-gitlab/hugo-on-gitlab-tutorial/</loc>
     <lastmod>2020-11-18T14:50:22+03:00</lastmod>
   </url>
-  
 </urlset>

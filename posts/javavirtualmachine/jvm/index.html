@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Java Virtual Machine - devngrow</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Java Virtual Machine" />
+<meta property="og:description" content="Как работает Java Virtual Machine, что такое GarbageCollector и что он делает внутри JVM" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://devngrow.com/posts/javavirtualmachine/jvm/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-10T18:00:00+03:00" />
+<meta property="article:modified_time" content="2021-07-10T18:00:00+03:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java Virtual Machine"/>
+<meta name="twitter:description" content="Как работает Java Virtual Machine, что такое GarbageCollector и что он делает внутри JVM"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://devngrow.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://devngrow.com/css/main.css" /><link rel="stylesheet" type="text/css" href="https://devngrow.com/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://devngrow.com/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://devngrow.com/">
+	<h1 class="site-title"><a href="https://devngrow.com/">devngrow</a></h1>
+	<div class="site-description"><h2>блог о человеке и компьютере</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/ffibonacci" title="Github"><i data-feather="github"></i></a><a href="mailto:devngrow.com?subject=blog" title="Email"><i data-feather="mail"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">CV</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Java Virtual Machine</h1>
+			<div class="meta">Posted at &mdash; Jul 10, 2021</div>
+		</div>
+
+		<div class="markdown">
+			<h4 id="heading"></h4>
+<h2 id="java-virtual-machine">Java Virtual Machine</h2>
+<p><strong>JVM</strong> - виртуальная машина, которая исполняет Java байт-код. JVM не понимает исходный код Java, поэтому необходимо скомпилировать *.java для получения *.class файла, который содержит байт-код.</p>
+<p><em>JVM реализует основную идею Java: &ldquo;Write Once - Run Anywhere&rdquo; (WORA).</em></p>
+<h4 id="java-class-file">Java Class file</h4>
+<p>1 класс - 1 класс-файл</p>
+<p><strong>Constant Pool</strong></p>
+<ul>
+<li>числа, строки</li>
+<li>указатели на классы, методы, поля</li>
+</ul>
+<p><strong>Описание класса</strong></p>
+<ul>
+<li>имя</li>
+<li>поля</li>
+<li>модификаторы</li>
+<li>методы</li>
+<li>супер класс</li>
+<li>атрибуты</li>
+<li>супер интерфейсы</li>
+</ul>
+<p>Поля, методы тоже имеют атрибуты (например, значения константных полей).</p>
+<p>Главный атрибут метода - это его код: Java байт-код.</p>
+<h4 id="java-byte-code">Java byte code</h4>
+<ul>
+<li>массив инструкций</li>
+<li>стэк операндов инструкций метода</li>
+<li>массив локальных переменных (аргументы метода, локальные переменные)</li>
+</ul>
+<p><strong>Программа для JVM</strong></p>
+<p>любая программа исполняемая на JVM имеет:</p>
+<ul>
+<li>
+<p>main class</p>
+<p><code>public static void main(String[] args)</code></p>
+</li>
+<li>
+<p>classpath - список директорий и архивов (jar файлов)</p>
+</li>
+<li>
+<p>В веб-приложениях программа для JVM - это веб-сервер: Tomcat, GlassFish, etc.</p>
+</li>
+</ul>
+<h4 id="java-runtime">Java Runtime</h4>
+<p>Для исполнения программы на JVM необходим JRE (Java Runtime Environment):</p>
+<ul>
+<li>JVM</li>
+<li>платформенные классы
+<ul>
+<li>core классы (java.lang.Object, java.lang.String, etc.)</li>
+<li>Java Standard APIs (IO, NET, NIO, AWT/Swing, etc.)</li>
+</ul>
+</li>
+<li>реализация native-методов платформенных классов (OS specific)</li>
+<li>вспомогательные файлы (описатели временных зон, медиа ресурсы, etc.)</li>
+</ul>
+<p>![](/Users/fibo/Pictures/Screenshots/Screenshot 2021-07-10 at 3.47.11 PM.png)</p>
+<h4 id="classloading-engine-загрузка-классов">Classloading engine (загрузка классов)</h4>
+<p><strong>Где JVM берет классы для исполнения ?</strong></p>
+<ul>
+<li>из Java Runtime (платформенные классы)</li>
+<li>из classpath приложения</li>
+<li>Автоматически сгенерированные налету (Proxy, Reflection accessors, реализация invoke dynamic)</li>
+<li>предоставленные самим приложением</li>
+</ul>
+<p><strong>Каждый класс грузится загрузчиком классов</strong></p>
+<ul>
+<li>для платформенных классов это bootstrap загрузчик;</li>
+<li>для классов из classpath приложения это системный загрузчик (AppClassLoader);</li>
+<li>классы приложения могут создавать свои загрузчики, которые будут грузить классы</li>
+</ul>
+<p><em>Загрузчик классов образует уникальное пространство имен классов.</em></p>
+<h4 id="старт-jvm">Старт JVM</h4>
+<ol>
+<li>
+<p>Грузится main класс системным загрузчиком (из classpath приложения)</p>
+<p>1.1 провоцирует загрузку части платформенных классов (core)</p>
+</li>
+<li>
+<p>Исполняется метод main(String[] args)</p>
+</li>
+</ol>
+<h4 id="процесс-загрузки-класса-создание-класса">Процесс загрузки класса (создание класса)</h4>
+<ul>
+<li>Читается class file: проверяется корректность формата (может выбросить ClassFormatError)</li>
+<li>Создается рантайм представление класса в выделенной области памяти: runtime constant pool in Method Area aka Meta Space aka Permanent Generation</li>
+<li>Грузятся суперкласс, суперинтерфейсы</li>
+</ul>
+<h4 id="линковка">Линковка</h4>
+<ul>
+<li>верификация байт-кода:
+<ul>
+<li>происходит с классом один раз;</li>
+<li>проверка корректности инструкций (корректности переходов);</li>
+<li>проверка выхода за пределы стэка операндов и локальных переменных;</li>
+<li>проверка совместимости типов.</li>
+</ul>
+</li>
+<li>подготовка;</li>
+<li>размещение символьных ссылок.</li>
+</ul>
+<p><strong>Инициализация класса</strong></p>
+<ul>
+<li>вызов статического инициализатора класса;</li>
+<li>случается при first use:
+<ul>
+<li>new</li>
+<li>доступ до статического поля</li>
+<li>вызов статического метода</li>
+</ul>
+</li>
+<li>провоцирует инициализацию статического супер-класса и супер-интерфейсов с default методами.</li>
+</ul>
+<h4 id="исполнение-java-байт-кода">Исполнение Java байт-кода</h4>
+<p>JVM может исполнять байт-код двумя способами:</p>
+<ul>
+<li>интерпретировать;</li>
+<li>транслировать в машинный код, который будет исполняться непосредственно на CPU.</li>
+</ul>
+<h5 id="компиляторы">Компиляторы</h5>
+<ul>
+<li>неоптимизирующие;</li>
+<li>простые оптимизирующие (пример: HotSpot Client);</li>
+<li>сложные оптимизирующие (пример: HotSpot Server).</li>
+</ul>
+<ul>
+<li>
+<p><strong>Динамические</strong> (Just-In-Time/JIT):</p>
+<p><em>трансляция в машинный код происходит во время исполнения программы.</em></p>
+<ul>
+<li>работают одновременно с исполняемой программой,</li>
+<li>компилируют <strong>горячий</strong> код(код, который чаще исполняется),</li>
+<li>горячий код вычисляется с помощью динамического профилировщика,</li>
+<li>используют информацию времени исполнения для оптимизаций.</li>
+</ul>
+</li>
+<li>
+<p><strong>Статические</strong> (Ahead-Of-Time/AOT):</p>
+<p><em>трансляция происходит до исполнения программы.</em></p>
+<ul>
+<li>не ограничены в ресурсах для оптимизации программ,</li>
+<li>компилирует каждый метод программы используя самые агрессивные оптимизации,</li>
+<li>на оптимизацию не тратятся ресурсы во время исполнения программы (быстрее старт).</li>
+</ul>
+<h4 id="reflection">Reflection</h4>
+<ul>
+<li>позволяет достучаться до классов, полей, методов по имени из Java программы,</li>
+<li>реализуется в JVM через доступ в Meta Space,</li>
+<li>ключевая возможность Java для многих популярных фреймворков и реализаций языков на JVM.</li>
+</ul>
+<h4 id="java-native-interface-jni">Java Native Interface (JNI)</h4>
+<ul>
+<li>связывает JVM с внешним миром (OS);</li>
+<li>Си интерфейс к JVM:
+<ul>
+<li>не зависит от реализации JVM;</li>
+<li>используется для релизации native методов на языке Си (или другом систеном языке);</li>
+<li>с помощью JNI написаны платформенно-зависимые реализации Java SE API: IO, NET, AWT.</li>
+</ul>
+</li>
+<li>релизуется в JVM как доступ к Meta Space.</li>
+</ul>
+</li>
+</ul>
+<h4 id="javalangthread">java.lang.Thread</h4>
+<ul>
+<li>
+<p>Java поток мапируется на нативный поток в соотношение 1-1</p>
+</li>
+<li>
+<p>с потоком связана память используемая для локальных переменных и стэка операндов методов (фреймов методов): стэк</p>
+<p>размер стэка - параметр JVM: -Xss</p>
+</li>
+<li>
+<p>имеет информацию о стэке вызовов методов потока (stack trace)</p>
+<p>в любой момент может о нем рассказать, помогает в обработке исключений</p>
+</li>
+</ul>
+<p><strong>Синхронизация</strong></p>
+<ul>
+<li>для безопасного доступа к разделяемой памяти между потоками;</li>
+<li>в нативной реализации используются средства ОС: ОС монитор есть в каждом Java объекте как скрытое поле</li>
+<li>оптимизирована когда конкуренция за ресурс происходит много реже, чем вход в synchronized</li>
+</ul>
+<h3 id="memory-management-garbage-collection">Memory Management. Garbage Collection</h3>
+<h4 id="выделение-памяти">Выделение памяти</h4>
+<ul>
+<li>релизация оператора <strong>new</strong>;</li>
+<li>объекты, выделенные с помощью оператора <strong>new</strong> распологаются в т.н. куче (<strong>Java Heap</strong>);</li>
+<li>организация <strong>Java Heap</strong> JVM-специфична;</li>
+<li>размтека (layout) Java объекта тоже JVM-специфична.</li>
+</ul>
+<h4 id="аллокация-объектов">Аллокация объектов</h4>
+<ul>
+<li>должна быть быстрой
+<ul>
+<li>JVM запрашивает у ОС память не под один объект, а сразу на много</li>
+<li>аллокация методом продвижения границы</li>
+</ul>
+</li>
+<li>потоко-безопасной (thread-safe), но при этом параллельной (не блокирующей)
+<ul>
+<li>Thread local heaps: каждый поток &ldquo;грызет&rdquo; свой кусок памяти</li>
+</ul>
+</li>
+</ul>
+<h4 id="layout-java-объекта">Layout Java объекта</h4>
+<p>Не специфицируется JVM, но по факту требует:</p>
+<ul>
+<li>
+<p>Java Object header:</p>
+<ul>
+<li>указатель на класс;</li>
+<li>монитор (lock);</li>
+<li>identity hashcode;</li>
+<li>флаги для GC.</li>
+</ul>
+</li>
+<li>
+<p>Поля</p>
+<p>могут быть предупорядочены из соображений экономии размера, выравнивания, особенностей целевой архитектуры</p>
+</li>
+</ul>
+<h4 id="сборка-мусора">Сборка мусора</h4>
+<p>![](/Users/fibo/Pictures/Screenshots/Screenshot 2021-07-10 at 5.04.07 PM.png)</p>
+<p><strong>Пространство Эдема</strong> - все новые объекты появляются здесь и им выделяется начальная память.</p>
+<p><strong>Пространство выживщих</strong> - объекты перемещаются сюда из Эдема после того как пережили один цикл сборки мусора.</p>
+<p>Процесс, когда объекты собираются в мусор из молодого поколения, называется <em>малым событием сборки мусора</em>.</p>
+<p>Процесс, когда объекты отправляются в мусор из старшего поколения, называется <em>основным событием сборки мусора</em>.</p>
+<p><strong>Не мусор(живые объекты):</strong></p>
+<ul>
+<li>объекты из корневого множества</li>
+<li>объекты, на которые ссылаются живые объекты</li>
+</ul>
+<p><strong>Корневое множество объектов (GC roots)</strong></p>
+<ol>
+<li>объекты в статических полях классов</li>
+<li>объекты доступные со стэка Java потоков</li>
+<li>объекты из JNI ссылок в native методах</li>
+</ol>
+<p><em>Все остальное - <strong>мусор</strong>.</em></p>
+<h4 id="трассирующие-сборщики">Трассирующие сборщики</h4>
+<ul>
+<li>mark-and-sweep
+<ul>
+<li>помечает живые объекты (mark), &ldquo;выметает&rdquo; (удаляет) мусор (sweep).</li>
+</ul>
+</li>
+<li>stop-and-copy
+<ul>
+<li>копирует живые объекты в специальное место (copy)</li>
+<li>освободившиеся место (мусор и места где были живые объекты) может использовать для новой аллокации.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Stop the World</strong></p>
+<ul>
+<li>живые объекты определены для определенного момента исполнения программы (при исполнении множество меняется)</li>
+<li>чтобы собрать мусор в общем случае нужно остановить потоки, чтобы определить где мусор (STW пауза)</li>
+</ul>
+<p><strong>Методы уменьшения STW паузы:</strong></p>
+<ul>
+<li>Инкрементальный (собирать не весь мусор в паузе)</li>
+<li>Параллельный (собирать мусор во многих потоках в паузе)</li>
+<li>Одновременный (concurrent) (собирать мусор одновременно с работой программы, не останавливая потоки)</li>
+</ul>
+<h4 id="поколенная-сборка-мусора">Поколенная сборка мусора</h4>
+<p><strong>Слабая гипотеза о поколениях:</strong></p>
+<ul>
+<li>большинство объектов умирает молодыми;</li>
+<li>старые объекты редко ссылаются на молодые.</li>
+</ul>
+<p><strong>Поколенный (generational) GC:</strong></p>
+<ul>
+<li>частный вид инкрементального</li>
+<li>во время т.н. малых сборок удаляем мусор среди молодых объектов</li>
+<li>объекты, переживающие одну или несколько сборок, перемещаем в область старого поколения</li>
+</ul>
+<p>Поскольку Java задействует сборку мусора по поколениям, то чем больше  событий сборки мусора переживает объект, тем дальше он продвигается в  куче. Он начинает в молодом поколении и в конечном итоге заканчивает в  штатном поколении, если проживет достаточно долго.</p>
+<p><em>Чтобы узнать какой GarbageCollector используется:</em></p>
+<p><code>java -XX:+PrintCommandLineFlags -version</code></p>
+<p>Начиная с версии 9 используется сборщик мусора G1 по умолчанию (java 17 lts также использует G1).</p>
+<p>Начиная с Java 8, на смену пространству постоянного поколения  (PermGen) приходит пространство памяти <strong>MetaSpace</strong>. Реализация отличается  от PermGen  —  это пространство кучи теперь изменяется автоматически.</p>
+<p>Это позволяет избежать проблемы нехватки памяти у приложений, которая возникает из-за ограниченного размера пространства PermGen в куче.  Память мета-пространства может быть собрана как мусор, и классы, которые больше не используются, будут автоматически очищены, когда  мета-пространство достигнет максимального размера.</p>
+<p><strong>G1</strong> также действует по принципу поколений, но в нем нет отдельных  пространств для молодого и старшего поколений. Вместо этого каждое  поколение представляет собой набор областей, что позволяет гибко  изменять размер молодого поколения.</p>
+<p>G1 разбивает кучу на набор областей одинакового размера (от 1 МБ до  32 МБ  —  в зависимости от размера кучи) и сканирует их в несколько  потоков. Область во время выполнения программы может неоднократно  становиться как старой, так и молодой.</p>
+<p>После завершения этапа разметки G1 знает, в каких областях содержится больше всего мусора. Если пользователь заинтересован в минимизации  пауз, G1 может выбрать только несколько областей. Если время паузы  неважно для пользователя или предел этого времени установлен высокий, G1 пройдет по большему числу областей.</p>
+<p>Поскольку G1 GC идентифицирует регионы с наибольшим количеством мусора и сначала выполняет сбор мусора в них, он и называется: “Мусор  —   первым”.</p>
+<p>Помимо областей <em>Эдема</em>, <em>Выживших</em> и <em>Старой памяти</em>, в G1GC присутствуют еще два типа.</p>
+<ul>
+<li><em>Humongous (Огромная)</em>  —  для объектов большого размера (более 50% размера кучи).</li>
+<li><em>Available (Доступная</em>)  —  неиспользуемое или не выделенное пространство.</li>
+</ul>
+<h3 id="manageability--monitoring">Manageability &amp; Monitoring</h3>
+<h5 id="jvm-tool-interface-jvm-ti">JVM Tool Interface (JVM TI):</h5>
+<ul>
+<li>отладчики</li>
+<li>профилировщики</li>
+</ul>
+<h5 id="java-management-beans">Java Management Beans</h5>
+<ul>
+<li>инструменты мониторинга запущенных приложений
+<ul>
+<li>JConsole, JMX Console, AMC</li>
+<li>Visual VM</li>
+<li>Java Mission Control</li>
+</ul>
+</li>
+</ul>
+<p><em>JVM TI используется при дебагинге.</em></p>
+<h4 id="реализации-jvm">Реализации JVM</h4>
+<p>Совместимые с JAVA SE спецификацией:</p>
+<ul>
+<li>Oracle HotSpot</li>
+<li>IBM J9</li>
+<li>Excelsior JET</li>
+<li>Azul (HotSpot based, со своим GC)</li>
+<li>SAP, RedHat (порты HotSpot на разные платформы)</li>
+</ul>
+<p>Sources:</p>
+<p><a href="https://www.youtube.com/watch?v=-fcj6EL9rc4&amp;list=WL&amp;index=1">JPoint: Никита Липский, Владимир Иванов — JVM: краткий курс общей анатомии</a></p>
+<p><a href="https://nuancesprog.ru/p/12392/">Сборка мусора в Java: что это такое и как работает в JVM</a></p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/java">java</a></li>
+								
+								<li><a href="/tags/jvm">jvm</a></li>
+								
+								<li><a href="/tags/dev">dev</a></li>
+								
+								<li><a href="/tags/grow">grow</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'devngrowcom';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+		Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © Made by Bill Gates. 2021  </div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
