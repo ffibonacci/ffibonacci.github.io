@@ -14,7 +14,7 @@
       <pubDate>Sat, 10 Jul 2021 20:16:06 +0300</pubDate>
       
       <guid>https://devngrow.com/posts/javavirtualmachine/jvm/</guid>
-      <description>Java Virtual Machine JVM - виртуальная машина, которая исполняет Java байт-код. JVM не понимает исходный код Java, поэтому необходимо скомпилировать *.</description>
+      <description>JVM - виртуальная машина, которая исполняет Java байт-код. JVM не понимает исходный код Java, поэтому необходимо скомпилировать *.java для получения *.</description>
     </item>
     
     <item>
