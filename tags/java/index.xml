@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <copyright>© Made by Bill Gates.</copyright>
-    <lastBuildDate>Sat, 10 Jul 2021 18:00:00 +0300</lastBuildDate><atom:link href="https://devngrow.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Jul 2021 20:16:06 +0300</lastBuildDate><atom:link href="https://devngrow.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java Virtual Machine</title>
       <link>https://devngrow.com/posts/javavirtualmachine/jvm/</link>
-      <pubDate>Sat, 10 Jul 2021 18:00:00 +0300</pubDate>
+      <pubDate>Sat, 10 Jul 2021 20:16:06 +0300</pubDate>
       
       <guid>https://devngrow.com/posts/javavirtualmachine/jvm/</guid>
       <description>Java Virtual Machine JVM - виртуальная машина, которая исполняет Java байт-код. JVM не понимает исходный код Java, поэтому необходимо скомпилировать *.</description>
